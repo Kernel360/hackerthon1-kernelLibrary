@@ -14,7 +14,6 @@ public class SessionInterceptor implements HandlerInterceptor {
                 "/user/login",
                 "/user/loginProcess",
                 "/user/join",
-                "/books",
                 "/user/logout"
         };  // 세션 체크하지 않을 url 명시
 

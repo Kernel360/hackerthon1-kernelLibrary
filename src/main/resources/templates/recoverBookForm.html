@@ -1,25 +1,20 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>책 회수</title>
-  <link rel="stylesheet" href="https://unpkg.com/mvp.css">
-</head>
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout/defaultLayout}">
 <body>
-<div>
-  <div>
-    <h4>책 회수</h4>
+<div layout:fragment="content">
+  <div style="display: flex; justify-content: center;">
+    <form th:action="@{/books/api/v1/recovers}" th:object="${recoverBookRequest}" method="post" style="width: 50%; margin-top: 100px;">
+      <label for="bookId">내가 등록한 책 목록</label>
+      <select id="bookId" name="bookId" th:field="*{bookId}">
+        <option value="0" disabled>회수할 책을 선택하세요</option>
+        <option th:each="book : ${bookList}" th:value="${book.id}" th:text="${book.name}"></option>
+      </select>
+      <br>
+      <button type="submit">회수</button>
+    </form>
   </div>
-  <form th:action="@{/books/api/v1/recovers}" th:object="${recoverBookRequest}" method="post">
-    <label for="bookId">내가 등록한 책 목록</label>
-    <select id="bookId" name="bookId" th:field="*{bookId}">
-      <option value="0" disabled>회수할 책을 선택하세요</option>
-      <option th:each="book : ${bookList}" th:value="${book.id}" th:text="${book.name}"></option>
-    </select>
-    <br>
-    <button type="submit">회수</button>
-  </form>
 </div>
 </body>
 </html>

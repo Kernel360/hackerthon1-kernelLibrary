@@ -35,3 +35,11 @@ server:
   servlet:
     session:
       persistent: false
+
+# Thymeleaf 설정
+thymeleaf:
+  cache: false
+  check-template-location: true
+  prefix: classpath:/templates/
+  suffix: .html
+  enabled: true

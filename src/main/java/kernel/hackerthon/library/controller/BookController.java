@@ -28,9 +28,8 @@ public class BookController {
     // 회수한 책은 제외하도록 처리해야
     @GetMapping
     public String books(Model model) {
-        List<Book> existingBooks = bookService.findBooksByIsRecoveryIsFalse();
-
-        model.addAttribute("books", existingBooks);
+        List<Book> books = bookService.findBooksByIsRecoveryIsFalse();
+        model.addAttribute("books", books);
         return "firstpage";
     }
 

@@ -1,37 +1,35 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>책 대여</title>
-        <link rel="stylesheet" href="https://unpkg.com/mvp.css">
-    </head>
-    <body>
-    <div>
-        <div>
-            <h4>책 대여</h4>
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout/defaultLayout}">
+<body>
+    <div layout:fragment="content">
+        <div style="display: flex; justify-content: center;">
+            <form th:action="@{/api/v1/rentals}" th:object="${rentalRequest}" method="post" style="width: 50%; margin-top: 100px;">
+                <div>
+                    <h4>책 대여</h4>
+                </div>
+                <label for="bookId">대여 가능한 책 목록</label>
+                <select id="bookId" name="bookId" th:field="*{bookId}">
+                    <option th:each="book : ${bookList}" th:value="${book.id}" th:text="${book.name}"></option>
+                </select>
+                <br>
+                <button type="submit">대여 신청</button>
+            </form>
         </div>
-        <form th:action="@{/api/v1/rentals}" th:object="${rentalRequest}" method="post">
-            <label for="bookId">대여 가능한 책 목록</label>
-            <select id="bookId" name="bookId" th:field="*{bookId}">
-                <option th:each="book : ${bookList}" th:value="${book.id}" th:text="${book.name}"></option>
-            </select>
-            <br>
-            <button type="submit">대여 신청</button>
-        </form>
-    </div>
-    <div>
-        <div>
-            <h4>책 반납</h4>
+        <div style="display: flex; justify-content: center;">
+            <form th:action="@{/api/v1/returns}" th:object="${rentalRequest}" method="post" style="width: 50%; margin-top: 100px;">
+                <div>
+                    <h4>책 반납</h4>
+                </div>
+                <label for="rentalBookId">반납할 책 목록</label>
+                <select id="rentalBookId" name="rentalId" th:field="*{rentalId}">
+                    <option th:each="rentaledBook : ${rentaledBookList}" th:value="${rentaledBook.id}" th:text="${rentaledBook.book.name}"></option>
+                </select>
+                <br>
+                <button type="submit">반납 완료</button>
+            </form>
         </div>
-        <form th:action="@{/api/v1/returns}" th:object="${rentalRequest}" method="post">
-            <label for="rentalBookId">반납할 책 목록</label>
-            <select id="rentalBookId" name="rentalId" th:field="*{rentalId}">
-                <option th:each="rentaledBook : ${rentaledBookList}" th:value="${rentaledBook.id}" th:text="${rentaledBook.book.name}"></option>
-            </select>
-            <br>
-            <button type="submit">반납 완료</button>
-        </form>
     </div>
-    </body>
+</body>
 </html>

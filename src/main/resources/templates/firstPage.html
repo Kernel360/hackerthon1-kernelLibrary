@@ -1,71 +1,42 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <style>
-        .img-center {
-            display: block;
-            margin: 0 auto;
-        }
-    </style>
-    <title>First_page</title>
-</head>
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout/defaultLayout}">
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Bookstore</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">My Books</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Search</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Profile</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-<div class="container">
-    <div class="row">
-        <div class="col-md-3">
-            <h2>Books</h2>
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <a href="#">
-                        <img src="data:image/jpeg;base64,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" alt="Circles in a circle by Wassily Kandinsky">
-                        오브젝트: 코드로 이해하는 객체지향 설계
-                    </a>
-                </li>
-            </ul>
-            <li class="list-group-item">
-                <a href="#">객체지향의 사실과 오해(위키북스 IT Leaders 23)</a>
-            </li>
-            <li class="list-group-item">
-                <a href="#">린 소프트웨어 개발의 적용</a>
-            </li>
-            <li class="list-group-item">
-                <a href="#">소프트웨어 린 개발의 적용</a>
-            </li>
-            </ul>
+    <div layout:fragment="content">
+        <div id="carouselExample" class="carousel slide" style="background-color: lightgray">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img th:src="@{/src/image1.jpeg}" class="d-block w-100" alt="..." style="width: 800px; height: 800px;">
+                </div>
+                <div class="carousel-item">
+                    <img th:src="@{/src/image2.jpeg}" class="d-block w-100" alt="..." style="width: 800px; height: 800px;">
+                </div>
+                <div class="carousel-item">
+                    <img th:src="@{/src/image3.png}" class="d-block w-100" alt="..." style="width: 800px; height: 800px;">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <div class="col-md-9">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Circles_in_a_circle_by_Wassily_Kandinsky.jpg/1200px-Circles_in_a_circle_by_Wassily_Kandinsky.jpg" alt="Circles in a circle by Wassily Kandinsky" class="img-center">
+        <h3>Books</h3>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+            <div th:each="book : ${books}" class="card" style="width: 18rem; margin: 10px;" >
+                <img th:src="@{/src/logo.png}" class="card-img-top" alt="...">
+                <th:block class="card-body">
+                    <h5 class="card-title" th:text="${book.name}"></h5>
+                    <p class="card-text">현재 서비스에서 제공하는 책입니다.</p>
+                    <a href="/rentals" class="btn btn-primary">대여하러 가기</a>
+                </th:block>
+            </div>
         </div>
     </div>
-</div>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>
 </html>
 

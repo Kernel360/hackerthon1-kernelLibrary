@@ -1,0 +1,33 @@
+<div class="header" th:fragment="headerFragment">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <img th:src="@{/src/logo.png}">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/books">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Use
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/books/add">내 책 등록하기</a></li>
+                            <li><a class="dropdown-item" href="/books/recovers">내 책 회수하기</a></li>
+                            <li><a class="dropdown-item" href="/rentals">책 대여 / 반납</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/Kernel360/hackerthon1-kernelLibrary">Github</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/user/logout">log out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
