@@ -5,7 +5,16 @@
     <title>권한 없음</title>
 </head>
 <body>
-  <a>책등록하러가기</a>
-  <a>홈으로가기</a>
+<a href="javascript:redirectToDonatePage()">책 등록 하러가기</a>
+<a href="javascript:redirectToHomePage">홈으로 가기</a>
+<script>
+    function  redirectToDonatePage(){
+        window.location.href="/books/add";
+    }
+
+    function redirectToHomePage(){
+        window.location.href="/books";
+    }
+</script>
 </body>
 </html>
